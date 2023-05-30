@@ -4,4 +4,8 @@ const sharedConfig = require("tailwind-config/tailwind.config.js");
 
 module.exports = {
   presets: [sharedConfig],
+  content: [
+    // app content
+    `./**/*.{js,ts,jsx,tsx}`,
+  ],
 };

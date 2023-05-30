@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": ["**/.env.*local", "CLOUDINARY_FOLDER"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],

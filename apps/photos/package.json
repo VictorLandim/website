@@ -9,21 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.4.1",
+    "cloudinary": "^1.32.0",
+    "eslint-config-next": "^13.0.1",
+    "imagemin": "^8.0.1",
+    "next": "^13.2.4",
+    "photoswipe": "^5.3.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "react-photo-album": "^2.0.3",
+    "react-photoswipe-gallery": "^2.2.6",
+    "ui": "*"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.13",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "postcss": "^8.4.20",
-    "tailwind-config": "workspace:*",
+    "tailwind-config": "*",
     "tailwindcss": "^3.2.4",
-    "tsconfig": "workspace:*",
+    "tsconfig": "*",
     "typescript": "^4.9.4"
   }
 }

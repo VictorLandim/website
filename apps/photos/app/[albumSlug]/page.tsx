@@ -1,0 +1,50 @@
+import Head from "next/head";
+import AlbumHeading from "@/components/AlbumHeading";
+import Gallery from "@/components/Gallery";
+import getAlbumNames from "@/utils/getAlbumNames";
+import getCloudinaryImages from "@/utils/getCloudinaryImages";
+import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
+import meta from "@/utils/meta";
+import { GetStaticPaths } from "next";
+
+type PageProps = {
+  params: {
+    albumSlug: string;
+  };
+};
+
+const AlbumDetailPage = async (props: PageProps) => {
+  const { albumSlug } = props.params;
+  const { images } = await getProps({ albumSlug });
+
+  return (
+    <>
+      <Head>
+        <title>{`${albumSlug} | ${meta.title}`}</title>
+      </Head>
+      {albumSlug && <AlbumHeading heading={albumSlug as string} />}
+      <Gallery photos={images} />
+    </>
+  );
+};
+
+export default AlbumDetailPage;
+
+const getProps = async ({ albumSlug }) => {
+  const images = await getCloudinaryImages(albumSlug);
+  const galleryImages = imagesToGalleryImages(images);
+
+  return {
+    images: galleryImages,
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const albumNames = await getAlbumNames();
+  const paths = albumNames.map((album) => ({ params: { albumSlug: album } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
