@@ -1,11 +1,10 @@
-import Head from "next/head";
 import AlbumHeading from "@/components/AlbumHeading";
 import Gallery from "@/components/Gallery";
 import getAlbumNames from "@/utils/getAlbumNames";
 import getCloudinaryImages from "@/utils/getCloudinaryImages";
 import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
 import meta from "@/utils/meta";
-import { GetStaticPaths } from "next";
+import { GetStaticPaths, Metadata } from "next";
 
 type PageProps = {
   params: {
@@ -19,9 +18,6 @@ const AlbumDetailPage = async (props: PageProps) => {
 
   return (
     <>
-      <Head>
-        <title>{`${albumSlug} | ${meta.title}`}</title>
-      </Head>
       {albumSlug && <AlbumHeading heading={albumSlug as string} />}
       <Gallery photos={images} />
     </>
@@ -36,6 +32,14 @@ const getProps = async ({ albumSlug }) => {
 
   return {
     images: galleryImages,
+  };
+};
+
+export const generateMetadata = async ({
+  params,
+}: PageProps): Promise<Metadata> => {
+  return {
+    title: `${params.albumSlug} | ${meta.title}`,
   };
 };
 
