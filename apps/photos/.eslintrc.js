@@ -3,5 +3,6 @@ module.exports = {
   extends: ["custom"],
   rules: {
     "turbo/no-undeclared-env-vars": "off",
+    "react/display-name": "off",
   },
 };

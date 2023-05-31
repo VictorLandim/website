@@ -4,7 +4,7 @@ import getAlbumNames from "@/utils/getAlbumNames";
 import getCloudinaryImages from "@/utils/getCloudinaryImages";
 import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
 import meta from "@/utils/meta";
-import { GetStaticPaths, Metadata } from "next";
+import { Metadata } from "next";
 
 type PageProps = {
   params: {
@@ -43,12 +43,8 @@ export const generateMetadata = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const generateStaticParams = async () => {
   const albumNames = await getAlbumNames();
-  const paths = albumNames.map((album) => ({ params: { albumSlug: album } }));
-
-  return {
-    paths,
-    fallback: false,
-  };
+  const albumSlugs = albumNames.map((album) => ({ albumSlug: album }));
+  return albumSlugs;
 };
