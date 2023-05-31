@@ -4,10 +4,8 @@ import getAlbumNames from "@/utils/getAlbumNames";
 import meta from "@/utils/meta";
 
 export const metadata = {
+  ...meta,
   title: `albums | ${meta.title}`,
-  openGraph: {
-    image: "",
-  },
 };
 
 const Albums = async () => {

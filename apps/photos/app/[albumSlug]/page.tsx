@@ -39,6 +39,7 @@ export const generateMetadata = async ({
   params,
 }: PageProps): Promise<Metadata> => {
   return {
+    ...meta,
     title: `${params.albumSlug} | ${meta.title}`,
   };
 };

@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 type MobileLayout = "single" | "multiple";
 
-const DEFAULT_MOBILE_LAYOUT: MobileLayout = "multiple";
+const DEFAULT_MOBILE_LAYOUT: MobileLayout = "single";
 
 type MobileLayoutContextType = {
   mobileLayout: MobileLayout;

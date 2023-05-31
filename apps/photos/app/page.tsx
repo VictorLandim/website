@@ -6,34 +6,8 @@ import getCloudinaryImages from "../utils/getCloudinaryImages";
 import imagesToGalleryImages from "../utils/imagesToGalleryImages";
 import meta from "../utils/meta";
 
-// https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 export const metadata: Metadata = {
-  generator: 'Next.js',
-  applicationName: 'victor.photos',
-  keywords: ['Victor', 'Photos', 'React', 'JavaScript', "Gallery", "Ideas", "Inspiration", "Nomad", "Travels", "Film", "Fujifilm"],
-  authors: [{ name: 'Victor Landim', url: 'https://victorlandim.com' }],
-  colorScheme: 'dark',
-  creator: 'Victor Landim',
-  publisher: 'Victor Landim',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  themeColor: "#000",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  description: meta.description,
-  openGraph: {
-    siteName: meta.title,
-    title: meta.title,
-    description: meta.description,
-  },
+  ...meta,
 };
 
 const HomePage = async () => {
