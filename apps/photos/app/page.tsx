@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import AlbumHeading from "../components/AlbumHeading";
 import Gallery from "../components/Gallery";
-import cloudinary from "../utils/cloudinary";
 import getCloudinaryImages from "../utils/getCloudinaryImages";
 import imagesToGalleryImages from "../utils/imagesToGalleryImages";
 import meta from "../utils/meta";
+import { getAlbumDisplayName } from "@/utils/getAlbumDisplayName";
 
 export const metadata: Metadata = {
   ...meta,
@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const { images, latestAlbum } = await getProps();
+  const albumDisplayName = getAlbumDisplayName(latestAlbum);
   return (
     <>
-      {latestAlbum && <AlbumHeading heading={`Latest: ${latestAlbum}`} />}
+      {latestAlbum && <AlbumHeading heading={`Latest: ${albumDisplayName}`} />}
       <Gallery photos={images} />
     </>
   );
@@ -23,18 +24,13 @@ const HomePage = async () => {
 export default HomePage;
 
 const getProps = async () => {
-  const foldersResult = await cloudinary.v2.api.sub_folders(
-    // eslint-disable-next-line turbo/no-undeclared-env-vars
-    process.env.CLOUDINARY_FOLDER
-  );
+  // const foldersResult = await cloudinary.v2.api.sub_folders(
+  //   process.env.CLOUDINARY_FOLDER
+  // );
 
-  const folders = foldersResult?.folders ?? [];
-  const lastIndex = folders.length - 1;
-
-  const latestFolder = (folders[lastIndex]?.name ?? "") as string;
+  const latestFolder = "patagonia";
 
   const images = await getCloudinaryImages(latestFolder);
-
   const galleryImages = imagesToGalleryImages(images);
 
   return {

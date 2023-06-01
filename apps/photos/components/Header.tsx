@@ -10,7 +10,7 @@ const listItems = [
 ];
 
 const Header = () => (
-  <header className="sticky top-0 z-10 flex w-full items-center justify-center border-b-2 border-white/10 bg-black pb-2 pt-4 text-white/80">
+  <header className="sticky top-0 z-10 flex w-full items-center justify-center border-b-2 border-white/10 bg-black pb-2 pt-3 text-white/80">
     <div className="flex max-w-[1400px] flex-1 items-center justify-between px-4 sm:px-6">
       <div className="text-left text-xs font-bold sm:text-base">
         <Link href="/">∇ictor.photos</Link>

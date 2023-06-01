@@ -31,7 +31,7 @@ const renderPhoto = (renderPhotoProps: RenderPhotoProps<GalleryImageProps>) => {
         <Image
           ref={ref as any}
           alt="victor.photos image"
-          className={`${className} transform cursor-pointer rounded-sm object-cover brightness-100 transition will-change-auto hover:brightness-110`}
+          className={`${className} cursor-pointer rounded-sm object-cover transition will-change-auto `}
           style={{ transform: "translate3d(0, 0, 0)" }}
           placeholder="blur"
           blurDataURL={blurDataUrl}

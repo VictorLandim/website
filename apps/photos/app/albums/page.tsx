@@ -2,6 +2,8 @@ import Link from "next/link";
 import AlbumTitle from "@/components/AlbumTitle";
 import getAlbumNames from "@/utils/getAlbumNames";
 import meta from "@/utils/meta";
+import { getAlbumDisplayName } from "@/utils/getAlbumDisplayName";
+import albumMetadata from "@/utils/albumMetadata";
 
 export const metadata = {
   ...meta,
@@ -13,13 +15,18 @@ const Albums = async () => {
 
   return (
     <ul>
-      {albums.map((album) => (
-        <li className="mb-4" key={album}>
-          <Link href={`/${album}`}>
-            <AlbumTitle name={album} isFilm />
-          </Link>
-        </li>
-      ))}
+      {albums.map((album) => {
+        const name = getAlbumDisplayName(album);
+        const isFilm =
+          albumMetadata.find((a) => a.name === album)?.isFilm ?? false;
+        return (
+          <li className="mb-4" key={album}>
+            <Link href={`/${album}`}>
+              <AlbumTitle name={name} isFilm={isFilm} />
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 };

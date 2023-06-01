@@ -1,5 +1,6 @@
 import AlbumHeading from "@/components/AlbumHeading";
 import Gallery from "@/components/Gallery";
+import { getAlbumDisplayName } from "@/utils/getAlbumDisplayName";
 import getAlbumNames from "@/utils/getAlbumNames";
 import getCloudinaryImages from "@/utils/getCloudinaryImages";
 import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
@@ -14,11 +15,12 @@ type PageProps = {
 
 const AlbumDetailPage = async (props: PageProps) => {
   const { albumSlug } = props.params;
+  const albumDisplayName = getAlbumDisplayName(albumSlug);
   const { images } = await getProps({ albumSlug });
 
   return (
     <>
-      {albumSlug && <AlbumHeading heading={albumSlug as string} />}
+      {albumDisplayName && <AlbumHeading heading={albumDisplayName} />}
       <Gallery photos={images} />
     </>
   );
@@ -40,7 +42,7 @@ export const generateMetadata = async ({
 }: PageProps): Promise<Metadata> => {
   return {
     ...meta,
-    title: `${params.albumSlug} | ${meta.title}`,
+    title: `${getAlbumDisplayName(params.albumSlug)} | ${meta.title}`,
   };
 };
 
