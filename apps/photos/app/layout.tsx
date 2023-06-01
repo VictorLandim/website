@@ -18,7 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <body>
         <MobileLayoutProvider>
-          <div className="flex min-h-screen flex-col bg-gradient-to-b from-black to-black/95">
+          <div className="flex min-h-screen flex-col bg-gradient-to-b from-black to-neutral-900">
             <Header />
             <main className="mx-auto w-full max-w-[1400px] flex-1 p-[12px] sm:p-6">
               {children}
