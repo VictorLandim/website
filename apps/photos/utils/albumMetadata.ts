@@ -52,8 +52,7 @@ const albumMetadata: AlbumMetadataItem[] = [
     year: "2023",
     isFilm: true,
     description: `
-      Kodak Vision 250D.
-      Kodak Portra 400.
+      Kodak Vision 250D, Kodak Portra 400.
       El Calafate, El Chaltén - Argentina.
     `,
     featuredIndex: 13,
@@ -65,9 +64,8 @@ const albumMetadata: AlbumMetadataItem[] = [
     year: "2023",
     isFilm: true,
     description: `
-    Kodak Vision 250D.
-      Kodak Portra 400.
-      Mendoza - Argentina, Maragogi - Brasil, Alto Paraíso - Brazil.
+      Kodak Vision 250D, Kodak Portra 400.
+      Mendoza - Argentina, Maragogi, Alto Paraíso - Brazil.
     `,
     featuredIndex: 6,
   },
