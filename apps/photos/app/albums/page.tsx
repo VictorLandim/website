@@ -12,14 +12,14 @@ import { Metadata, ResolvingMetadata } from "next";
 import { getImageUrl } from "@/utils/getImageUrl";
 
 const Albums = async () => {
-  const { albumsByYear } = await getProps();
+  const { albumsByYearArray } = await getProps();
 
   return (
     <>
-      {Object.keys(albumsByYear).map((year) => (
+      {albumsByYearArray.map(({ year, items }) => (
         <ul key={year} className="mb-4 text-white">
           <h2 className="mb-3 text-lg tracking-wider">{year}</h2>
-          {albumsByYear[year].map((album) => {
+          {items.map((album) => {
             const albumSlug = album.name;
             const name = album.altName;
             const isFilm = album.isFilm;
@@ -50,14 +50,22 @@ const getProps = async () => {
       acc[key] = acc[key] || [];
 
       const albums = [...acc[key], curr].sort(
-        (a, b) => Number(a.month) - Number(b.month)
+        // newest first
+        (a, b) => Number(b.month) - Number(a.month)
       );
       acc[key] = albums;
       return acc;
     }, {});
 
+  const albumsByYearArray = Object.keys(albumsByYear)
+    .map((key) => ({
+      year: key,
+      items: albumsByYear[key],
+    }))
+    // newest first
+    .sort((a, b) => Number(b.year) - Number(a.year));
   return {
-    albumsByYear,
+    albumsByYearArray,
   };
 };
 
