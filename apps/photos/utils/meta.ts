@@ -5,10 +5,7 @@ const description = "collection of my favorite pictures";
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 const meta: Metadata = {
-  title: {
-    template: `%s | ${title}`,
-    default: title,
-  },
+  title,
   description,
   generator: "Next.js",
   applicationName: title,
@@ -19,12 +16,19 @@ const meta: Metadata = {
     "React",
     "JavaScript",
     "Gallery",
+    "Portfolio",
     "Ideas",
     "Inspiration",
     "Nomad",
-    "Travels",
+    "Travel",
     "Film",
     "Fujifilm",
+    "Kodak",
+    "Photography",
+    "Technology",
+    "World",
+    "Airplane",
+    "Explore",
   ],
   authors: [{ name: "Victor Landim", url: "https://victorlandim.com" }],
   colorScheme: "dark",

@@ -1,18 +1,25 @@
-type Item = {
+export type AlbumMetadataItem = {
   name: string;
   altName: string;
   month: string;
   year: string;
   isFilm: boolean;
+  description: string;
+  featuredIndex: number;
 };
 
-const albumMetadata: Item[] = [
+const albumMetadata: AlbumMetadataItem[] = [
   {
     name: "floripa",
     altName: "Floripa",
     month: "01",
     year: "2023",
     isFilm: true,
+    description: `
+      Fuji Superia X-Tra 400.
+      Florianópolis - Brazil during New Years.
+    `,
+    featuredIndex: 31,
   },
   {
     name: "santa-marta",
@@ -20,6 +27,11 @@ const albumMetadata: Item[] = [
     month: "03",
     year: "2023",
     isFilm: true,
+    description: `
+      Fuji Superia X-Tra 400.
+      Santa Marta - Colombia.
+    `,
+    featuredIndex: 0,
   },
   {
     name: "buenos-aires",
@@ -27,6 +39,11 @@ const albumMetadata: Item[] = [
     month: "08",
     year: "2022",
     isFilm: false,
+    description: `
+      Fujifilm X-E2.
+      Buenos Aires - Argentina.
+    `,
+    featuredIndex: 52,
   },
   {
     name: "patagonia",
@@ -34,14 +51,28 @@ const albumMetadata: Item[] = [
     month: "04",
     year: "2023",
     isFilm: true,
+    description: `
+      Kodak Vision 250D.
+      Kodak Portra 400.
+      El Calafate, El Chaltén - Argentina.
+    `,
+    featuredIndex: 13,
   },
   {
     name: "mendoza-maragogi-chapada",
     altName: "Mendoza/Maragogi/Chapada",
-    month: "05",
+    month: "04",
     year: "2023",
     isFilm: true,
+    description: `
+    Kodak Vision 250D.
+      Kodak Portra 400.
+      Mendoza - Argentina, Maragogi - Brasil, Alto Paraíso - Brazil.
+    `,
+    featuredIndex: 6,
   },
 ];
 
 export default albumMetadata;
+
+export const FEATURED_ALBUM = "patagonia";

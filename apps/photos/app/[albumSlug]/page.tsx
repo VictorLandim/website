@@ -1,10 +1,10 @@
 import AlbumHeading from "@/components/AlbumHeading";
 import Gallery from "@/components/Gallery";
+import albumMetadata from "@/utils/albumMetadata";
 import { getAlbumDisplayName } from "@/utils/getAlbumDisplayName";
 import getAlbumNames from "@/utils/getAlbumNames";
 import getCloudinaryImages from "@/utils/getCloudinaryImages";
 import { getImageUrl } from "@/utils/getImageUrl";
-import { getRandomElement } from "@/utils/getRandomElement";
 import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
 import meta from "@/utils/meta";
 import { Metadata, ResolvingMetadata } from "next";
@@ -49,16 +49,24 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
-  const randomImage = getRandomElement(props.images);
+  const metadata = albumMetadata.find(
+    (album) => album.name === params.albumSlug
+  );
+
+  const featuredImageIndex = metadata?.featuredIndex ?? 0;
+  const featuredImage = props.images[featuredImageIndex];
   const imageWidth = 500;
-  const imageUrl = getImageUrl(randomImage.src, imageWidth);
+  const imageUrl = getImageUrl(featuredImage.src, imageWidth);
+
+  const description = metadata?.description ?? "";
 
   return {
     ...meta,
-    title: getAlbumDisplayName(params.albumSlug),
+    title: `${getAlbumDisplayName(params.albumSlug)} | ${meta.title}`,
     openGraph: {
       ...meta.openGraph,
       title: getAlbumDisplayName(params.albumSlug),
+      description,
       images: [imageUrl, ...previousImages],
     },
   };
