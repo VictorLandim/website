@@ -3,9 +3,11 @@ import Gallery from "@/components/Gallery";
 import { getAlbumDisplayName } from "@/utils/getAlbumDisplayName";
 import getAlbumNames from "@/utils/getAlbumNames";
 import getCloudinaryImages from "@/utils/getCloudinaryImages";
+import { getImageUrl } from "@/utils/getImageUrl";
+import { getRandomElement } from "@/utils/getRandomElement";
 import imagesToGalleryImages from "@/utils/imagesToGalleryImages";
 import meta from "@/utils/meta";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 type PageProps = {
   params: {
@@ -37,14 +39,30 @@ const getProps = async ({ albumSlug }) => {
   };
 };
 
-export const generateMetadata = async ({
-  params,
-}: PageProps): Promise<Metadata> => {
+export async function generateMetadata(
+  { params }: PageProps,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  // fetch data
+  const props = await getProps({ albumSlug: params.albumSlug });
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  const randomImage = getRandomElement(props.images);
+  const imageWidth = 500;
+  const imageUrl = getImageUrl(randomImage.src, imageWidth);
+
   return {
     ...meta,
-    title: `${getAlbumDisplayName(params.albumSlug)} | ${meta.title}`,
+    title: getAlbumDisplayName(params.albumSlug),
+    openGraph: {
+      ...meta.openGraph,
+      title: getAlbumDisplayName(params.albumSlug),
+      images: [imageUrl, ...previousImages],
+    },
   };
-};
+}
 
 export const generateStaticParams = async () => {
   const albumNames = await getAlbumNames();

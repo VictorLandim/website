@@ -7,7 +7,7 @@ import albumMetadata from "@/utils/albumMetadata";
 
 export const metadata = {
   ...meta,
-  title: `albums | ${meta.title}`,
+  title: "albums",
 };
 
 const Albums = async () => {

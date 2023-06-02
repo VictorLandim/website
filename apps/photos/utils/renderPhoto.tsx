@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { RenderPhotoProps } from "react-photo-album";
 import { Item } from "react-photoswipe-gallery";
 import { GalleryImageProps } from "./types";
+import { getImageUrl } from "./getImageUrl";
 
 const renderPhoto = (renderPhotoProps: RenderPhotoProps<GalleryImageProps>) => {
   const {
@@ -18,7 +19,7 @@ const renderPhoto = (renderPhotoProps: RenderPhotoProps<GalleryImageProps>) => {
   );
   const lightboxHeight = Math.round(lightboxWidth / ASPECT_RATIO);
 
-  const sliderSrc = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_${lightboxWidth}/${src}`;
+  const sliderSrc = getImageUrl(src, lightboxWidth);
 
   return (
     <Item
