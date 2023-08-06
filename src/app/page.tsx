@@ -9,7 +9,7 @@ const Nabla = () => (
   >
     <path
       d="M48.66 99.96L4.42 1.4V0H94.3V1.4L50.06 99.96H48.66ZM53.42 78.82L85.62 5.88H21.92L53.42 78.82Z"
-      shape-rendering="geometricPrecision"
+      shapeRendering="geometricPrecision"
     />
   </svg>
 );
@@ -19,25 +19,28 @@ const intro = () => (
     <h1 className="text-3xl font-bold mb-8">Victor Landim</h1>
     <div className="flex flex-col gap-6">
       <p>
-        Hey, I'm Victor, a passionate Software Engineer and creative coder.{" "}
+        {`Hey, I'm Victor – a passionate Software Engineer and creative coder.\n`}
+        {`I've been crafting web experiences for 6 years.\n`}
         <br />
-        I've been crafting web experiences for 6 years. <br />
-        Working at{" "}
+        {"Working at "}
         <Link href="https://www.beachbody.com/" target="_blank">
           beachbody.com
         </Link>
         .
       </p>
       <p>
-        See{" "}
+        {"Feel free to take a look at "}
         <Link href="/cv.pdf" target="_blank">
           my CV
         </Link>
         .
       </p>
       <p>
-        Outside of programming I really enjoy hiking, making music and
-        photographing. You can check out my photos at{" "}
+        {
+          "Outside of programming I really enjoy hiking, making music and photography ."
+        }
+        <br />
+        {"You can check out my photos at "}
         <Link href="https://victor.photos" target="_blank">
           victor.photos
         </Link>
@@ -66,7 +69,6 @@ export default function Home() {
   return (
     <div className="flex flex-col mb-40 lg:mt-24 mt-12">
       <Nabla />
-
       <div className="flex flex-col gap-6">
         {intro()}
         {contact()}
