@@ -1,29 +1,24 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Fragment_Mono } from "next/font/google";
-import Footer from "@/components/Footer";
+import { meta } from "@/meta";
 
-export const metadata: Metadata = {
-  title: "Victor Landim | Software Engineer",
-  description:
-    "Passionate Software Engineer currently crafting web experiences at BeachBody.com.",
-};
+export const metadata = meta;
 
-const inter = Inter({ subsets: ["latin"] });
-
-const fragmentMono = Fragment_Mono({ subsets: ["latin"], weight: ["400"] });
+const fragmentMono = Fragment_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html
     lang="en"
-    className={`bg-black antialiased text-white/80 ${fragmentMono.className}`}
+    className={`bg-black antialiased text-white/80 text-[18px] ${fragmentMono.className}`}
   >
-    <body className="h-screen flex flex-col bg-gradient-to-b from-black via-neutral-900 to-black">
-      <main className="mx-auto w-full flex-1 max-w-[900px] p-3 sm:p-6">
+    <body className="min-h-screen flex flex-col bg-gradient-to-b from-black via-neutral-900 to-black">
+      <main className="lg:ml-64 mx-auto flex-1 max-w-2xl w-full px-6 lg:px-8">
         {children}
       </main>
-      <Footer />
     </body>
   </html>
 );
