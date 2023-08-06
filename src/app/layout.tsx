@@ -15,7 +15,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     lang="en"
     className={`bg-black antialiased text-white/80 text-[18px] ${fragmentMono.className}`}
   >
-    <body className="min-h-screen flex flex-col bg-gradient-to-b from-black via-neutral-900 to-black">
+    <body className="min-h-screen flex flex-col bg-gradient-to-b from-black to-neutral-800">
       <main className="lg:ml-64 mx-auto flex-1 max-w-2xl w-full px-6 lg:px-8">
         {children}
       </main>

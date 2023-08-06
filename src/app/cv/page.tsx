@@ -191,7 +191,7 @@ const resume = {
 
 const ResumePage = () => {
   useEffect(() => {
-    document.querySelector("body").classList.add("A4");
+    document.querySelector("body")?.classList.add("A4");
   }, []);
 
   const Header = () => (
@@ -206,7 +206,7 @@ const ResumePage = () => {
       <h2 className="cv__title">Skills</h2>
       <div className="cv__skill-container">
         {resume.skills.map((e) => (
-          <div className="cv__skill">
+          <div className="cv__skill" key={e.title}>
             <h6 className="cv__skill-title">{e.title}:</h6>
             <div className="cv__skill-content">{e.content.join(", ")}.</div>
 
@@ -223,7 +223,7 @@ const ResumePage = () => {
     <>
       <h2 className="cv__title">6 Years of Experience</h2>
       {resume.experiences.map((e) => (
-        <div className="cv__experience">
+        <div className="cv__experience" key={e.company}>
           <h5 className="cv__content-title">
             {e.position && `${e.position} | `}
             {e.companyLink ? (
@@ -246,7 +246,7 @@ const ResumePage = () => {
           ></h5>
 
           {e.content.map((f) => (
-            <p className="cv__content">
+            <p className="cv__content" key={f}>
               <FiChevronRight size={12} color="#303030" />
               <span dangerouslySetInnerHTML={{ __html: f }} />
             </p>
@@ -260,7 +260,7 @@ const ResumePage = () => {
     <>
       <h2 className="cv__title">Education</h2>
       {resume.education.map((e) => (
-        <div className="cv__experience">
+        <div className="cv__experience" key={e.title}>
           <h5
             className="cv__content-title"
             style={{ marginBottom: "10px" }}
@@ -353,7 +353,7 @@ const ResumePage = () => {
       <h2 className="cv__title">Accomplishments</h2>
 
       {resume.accomplishments.map((e) => (
-        <div className="cv__experience">
+        <div className="cv__experience" key={e.title}>
           <h5 className="cv__content-title">
             {e.position && `${e.position} | `}
             {e.url ? (
