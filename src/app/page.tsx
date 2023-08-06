@@ -37,7 +37,7 @@ const intro = () => (
       </p>
       <p>
         {
-          "Outside of programming I really enjoy hiking, making music and photography ."
+          "Outside of programming I really enjoy hiking, making music and photography."
         }
         <br />
         {"You can check out my photos at "}
