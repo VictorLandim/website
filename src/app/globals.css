@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body::after {
+@layer base {
+  a {
+    @apply bg-slate-800 hover:bg-slate-700 transition-colors;
+  }
+}
+
+body::before {
   --color: rgba(156, 163, 175, 0.2);
   --width: 20px;
   --size: 0.5px;

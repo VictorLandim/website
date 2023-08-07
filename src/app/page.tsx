@@ -1,5 +1,3 @@
-import Link from "@/components/Link";
-
 const Nabla = () => (
   <svg
     viewBox="0 0 99 108"
@@ -23,16 +21,16 @@ const intro = () => (
         {`I've been crafting web experiences for 6 years.\n`}
         <br />
         {"Working at "}
-        <Link href="https://www.beachbody.com/" target="_blank">
+        <a href="https://www.beachbody.com/" target="_blank">
           beachbody.com
-        </Link>
+        </a>
         .
       </p>
       <p>
         {"Take a look at "}
-        <Link href="/cv.pdf" target="_blank">
+        <a href="/cv.pdf" target="_blank">
           my CV
-        </Link>
+        </a>
         .
       </p>
       <p>
@@ -41,9 +39,9 @@ const intro = () => (
         }
         <br />
         {"Check out my photos at "}
-        <Link href="https://victor.photos" target="_blank">
+        <a href="https://victor.photos" target="_blank">
           victor.photos
-        </Link>
+        </a>
         .
       </p>
       <p>Currently exploring glsl shader art.</p>
@@ -55,11 +53,11 @@ const contact = () => (
   <div>
     <h3 className="text-xl font-bold mt-8 mb-4">Contact</h3>
     <p>
-      Reach out at{" "}
-      <Link href="mailto:hi@victorlandim.com">hi@victorlandim.com</Link> or at{" "}
-      <Link href="https://www.linkedin.com/in/victor-landim" target="_blank">
+      Reach out at <a href="mailto:hi@victorlandim.com">hi@victorlandim.com</a>{" "}
+      or at{" "}
+      <a href="https://www.linkedin.com/in/victor-landim" target="_blank">
         linkdin
-      </Link>
+      </a>
       .
     </p>
   </div>
