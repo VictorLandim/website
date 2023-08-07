@@ -29,7 +29,7 @@ const intro = () => (
         .
       </p>
       <p>
-        {"Feel free to take a look at "}
+        {"Take a look at "}
         <Link href="/cv.pdf" target="_blank">
           my CV
         </Link>
@@ -40,7 +40,7 @@ const intro = () => (
           "Outside of programming I really enjoy hiking, making music and photography."
         }
         <br />
-        {"You can check out my photos at "}
+        {"Check out my photos at "}
         <Link href="https://victor.photos" target="_blank">
           victor.photos
         </Link>

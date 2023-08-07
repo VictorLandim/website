@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body::after {
+  --color: rgba(156, 163, 175, 0.2);
+  --width: 20px;
+  --size: 0.5px;
+
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: radial-gradient(var(--color) var(--size), transparent 0);
+  background-size: var(--width) var(--width);
+}
